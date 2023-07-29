@@ -9,6 +9,7 @@ Run MySql in remote docker-container for JoGoVerein 4.06 with docker compose
 
 docker-compose.yml:
 
+```
 version: '3.3'
 services:
   db:
@@ -30,21 +31,22 @@ services:
       - ./mysql-conf:/etc/my.cnf.d
       - ./mysql-log:/var/log/mysql
       - ./initdb.sql:/docker-entrypoint-initdb.d/1.sql
-
+```
 --------------------
 initdb.sql:
-
+```
 GRANT CREATE ON *.* TO 'root'@'%';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+```
 ------------------
 
 mysql-conf/1.sql:
-
+```
 #general_log = 6
 #log_slow_queries= /var/log/mysql/mysql-slow.log
 #long_query_time=10
 bind_addresss=0.0.0.0
-
+```
 
 
 
